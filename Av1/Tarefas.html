@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title style="font-family: Arial">Lista de tarefas</title>
+	<style>
+		h1, label, input, button {
+			display: block;
+			margin: auto;
+			font-family: Arial;
+		}
+        label {
+            display: block;
+            text-align: center;
+        }
+
+	    button {
+		    margin-top: 10px;
+	    }
+
+	    #listaTarefas {
+		    text-align: center;
+		    font-family: Arial;
+	    }
+
+	    p {
+		    margin: 10px 0;
+	    }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center">Lista de Tarefas</h1>
+	<label for="tarefa">Digite a tarefa:</label>
+	<input type="text" id="tarefa" name="tarefa" required>
+	<button type="button" onclick="adicionarTarefa()">Adicionar</button>
+	<button type="button" onclick="limparTarefas()">Limpar</button>
+	<div id="listaTarefas"></div>
+	<script>
+		function adicionarTarefa() {
+			var tarefa = document.getElementById("tarefa").value;
+			var divTarefas = document.getElementById("listaTarefas");
+			var novaTarefa = document.createElement("p");
+			novaTarefa.innerHTML = tarefa;
+			divTarefas.appendChild(novaTarefa);
+			document.getElementById("tarefa").value = "";
+		}
+
+	    function limparTarefas() {
+		    var divTarefas = document.getElementById("listaTarefas");
+		    divTarefas.innerHTML = "";
+	}
+    </script>
+</body>
+</html>
